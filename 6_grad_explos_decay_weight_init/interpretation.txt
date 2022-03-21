@@ -1,0 +1,13 @@
+3.1
+It's better when an activation function is centered around zero. That's why tanh is better than sigmoid.
+
+Saturation is the situation when gradients can't propagate.
+
+When training a deeper network with sigmoid as activation function
+1 mean value of the last layer weights is set to zero
+2 variance is minimal
+This behavior is called saturation of the sigmoid. In this situation network more relies on the learned bias b (w*x + b).
+It means the network learns the mean value.
+
+
+3.2
