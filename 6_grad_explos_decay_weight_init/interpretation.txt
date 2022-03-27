@@ -4,10 +4,30 @@ It's better when an activation function is centered around zero. That's why tanh
 Saturation is the situation when gradients can't propagate.
 
 When training a deeper network with sigmoid as activation function
-1 mean value of the last layer weights is set to zero
-2 variance is minimal
+1 mean value of the last layer is learned very fast (coefficient 'b' in 'W*h + b')
+2 weights of neuron inputs are set to zero during learning (coefficient 'h' in 'W*h + b')
+3 variance of the last layer is minimal
+
 This behavior is called saturation of the sigmoid. In this situation network more relies on the learned bias b (w*x + b).
 It means the network learns the mean value.
 
 
 3.2
+With hyperbolic tangent first layers saturate faster, last layer saturate slower
+With softsign all layers saturate a bit slower than with hyperbolic tangent, but they saturate all together
+
+4.1
+LogLikelihood cost function + softmax outputs works better than quadratic cost function.
+
+4.2.1
+Output of the paper: strategy for weight initialisation - normalized initialization
+
+4.3
+the variance of the back-propagated gradients gets smaller as it is propagated downwards.
+
+5
+- NNs with sigmoid or hyperbolic tangent units and standard initialization perform poorly
+- softsign networks seem to be more robust to the initialization procedure
+- normalized initialization can be helpful for hyperbolic tangent
+
+- Sigmoid activations (not symmetric around 0) should be avoided when initializing from small random weights (pool learning dynamics)
